@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_process_cmms_store_cgc_sum" default="compile.module.process_cmms_store_cgc_sum">
+  <dirname property="module.process_cmms_store_cgc_sum.basedir" file="${ant.file.module_process_cmms_store_cgc_sum}"/>
+  
+  <property name="module.jdk.home.process_cmms_store_cgc_sum" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.process_cmms_store_cgc_sum" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.process_cmms_store_cgc_sum" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.process_cmms_store_cgc_sum" value="-encoding x-windows-874 -source 1.7 ${compiler.args}"/>
+  
+  <property name="process_cmms_store_cgc_sum.output.dir" value="${module.process_cmms_store_cgc_sum.basedir}/out/production/process_cmms_store_cgc_sum"/>
+  <property name="process_cmms_store_cgc_sum.testoutput.dir" value="${module.process_cmms_store_cgc_sum.basedir}/out/test/process_cmms_store_cgc_sum"/>
+  
+  <path id="process_cmms_store_cgc_sum.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="process_cmms_store_cgc_sum.module.production.classpath">
+    <path refid="${module.jdk.classpath.process_cmms_store_cgc_sum}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="process_cmms_store_cgc_sum.runtime.production.module.classpath">
+    <pathelement location="${process_cmms_store_cgc_sum.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="process_cmms_store_cgc_sum.module.classpath">
+    <path refid="${module.jdk.classpath.process_cmms_store_cgc_sum}"/>
+    <pathelement location="${process_cmms_store_cgc_sum.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="process_cmms_store_cgc_sum.runtime.module.classpath">
+    <pathelement location="${process_cmms_store_cgc_sum.testoutput.dir}"/>
+    <pathelement location="${process_cmms_store_cgc_sum.output.dir}"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.process_cmms_store_cgc_sum">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.process_cmms_store_cgc_sum">
+    <patternset refid="excluded.from.module.process_cmms_store_cgc_sum"/>
+  </patternset>
+  
+  <path id="process_cmms_store_cgc_sum.module.sourcepath">
+    <dirset dir="${module.process_cmms_store_cgc_sum.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.process_cmms_store_cgc_sum" depends="compile.module.process_cmms_store_cgc_sum.production,compile.module.process_cmms_store_cgc_sum.tests" description="Compile module process_cmms_store_cgc_sum"/>
+  
+  <target name="compile.module.process_cmms_store_cgc_sum.production" depends="register.custom.compilers" description="Compile module process_cmms_store_cgc_sum; production classes">
+    <mkdir dir="${process_cmms_store_cgc_sum.output.dir}"/>
+    <javac2 destdir="${process_cmms_store_cgc_sum.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.process_cmms_store_cgc_sum}/javac">
+      <compilerarg line="${compiler.args.process_cmms_store_cgc_sum}"/>
+      <bootclasspath refid="process_cmms_store_cgc_sum.module.bootclasspath"/>
+      <classpath refid="process_cmms_store_cgc_sum.module.production.classpath"/>
+      <src refid="process_cmms_store_cgc_sum.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.process_cmms_store_cgc_sum"/>
+    </javac2>
+    
+    <copy todir="${process_cmms_store_cgc_sum.output.dir}">
+      <fileset dir="${module.process_cmms_store_cgc_sum.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.process_cmms_store_cgc_sum.tests" depends="register.custom.compilers,compile.module.process_cmms_store_cgc_sum.production" description="compile module process_cmms_store_cgc_sum; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.process_cmms_store_cgc_sum" description="cleanup module">
+    <delete dir="${process_cmms_store_cgc_sum.output.dir}"/>
+    <delete dir="${process_cmms_store_cgc_sum.testoutput.dir}"/>
+  </target>
+</project>

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="Process_CMMS_Store_CGC_Sum:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Process_CMMS_Store_CGC_Sum_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Process_CMMS_Store_CGC_Sum.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+      <element id="library" level="project" name="commons-codec-1.10" />
+    </root>
+  </artifact>
+</component>
